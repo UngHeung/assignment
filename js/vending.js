@@ -136,3 +136,22 @@ function getTotalAmount() {
 function getChanges() {
     changesOutput.innerText = `${changes}`;
 }
+
+/* ========== calculation ========== */
+function calculation(insertMoney, itemPrice) {
+    setFunds(insertMoney);
+    setTotalAmount(itemPrice);
+    setChanges();
+}
+
+function paymentCalculation() {
+    totalFunds = changes;
+    console.log(totalFunds, changes);
+}
+
+/* ========== display output ========== */
+function displayOutput() {
+    getFunds();
+    getTotalAmount();
+    getChanges();
+}
