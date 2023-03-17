@@ -203,3 +203,24 @@ function selectItems() {
 }
 
 selectItems();
+
+/* return items */
+function returnItems() {
+    returnBtn.addEventListener("click", () => {
+        if (checkReturn()) {
+            moveReturnList();
+            pickList.innerHTML = "";
+            totalAmount = 0;
+
+            paymentCalculation();
+            resetItemsCount();
+            displayOutput();
+        }
+
+        setTimeout(() => {
+            returnList.innerHTML = "";
+        }, 5000);
+    });
+}
+
+returnItems();
