@@ -53,3 +53,64 @@
     content: "원";
     margin-left: 3px;
 }
+
+/* ===== return ===== */
+.return {
+    width: 360px;
+    height: 475px;
+    margin-top: 20px;
+    padding-top: 20px;
+
+    background-color: white;
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+.return>h3 {
+    margin-bottom: 10px;
+
+    font-size: var(--font-size-display);
+}
+
+.return>ul {
+    width: 306px;
+    height: 364px;
+    margin: 0 auto;
+    padding: 7px 0;
+
+    background-color: var(--color-back);
+    box-sizing: border-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+
+    overflow-y: auto;
+}
+
+/* return list (common) */
+.return>ul>li {
+    width: 276px;
+}
+
+.return>ul>li:not(:first-child) {
+    margin-top: 7px;
+}
+
+/* ===== total ===== */
+.total {
+    float: right;
+    margin: 5px 30px 0 0;
+}
+
+.total>h3,
+.total>span {
+    display: inline-block;
+
+    font-size: var(--font-size-price);
+    font-weight: 500;
+}
+
+.total>span::after {
+    content: "원";
+    margin-left: 3px;
+}
