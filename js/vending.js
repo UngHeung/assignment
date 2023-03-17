@@ -282,3 +282,19 @@ function checkInsertInput() {
     alert(`${insertInput.value}원이 입금 되었습니다.🤑`);
     return true;
 }
+
+/* changes validation */
+function checkChanges() {
+    if (changes <= 0) {
+        if (totalAmount !== 0 && changes === 0) {
+            alert("선택된 상품이 있습니다. 😂");
+            return false;
+        }
+
+        alert("거스름돈이 없습니다.🖐️");
+        return false;
+    }
+
+    alert(`${changes}원이 반환되었습니다.👌`);
+    return true;
+}
