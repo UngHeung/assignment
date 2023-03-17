@@ -81,3 +81,48 @@ input[type="button"],
 button[type="button"] {
     cursor: pointer;
 }
+
+/* selection, return list */
+.selection>li,
+.return>ul>li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 46px;
+    margin: 5px auto;
+    padding: 0 13px;
+
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.thumbnail {
+    width: 18px;
+    height: 33px;
+}
+
+.name {
+    font-size: var(--font-size-name);
+    font-weight: 500;
+}
+
+.count {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+
+    font-size: var(--font-size-display);
+    text-align: center;
+    line-height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    header>img {
+        max-width: 360px;
+        margin-bottom: 10px;
+    }
+}
