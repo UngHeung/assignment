@@ -171,3 +171,14 @@ function insertMoney() {
 }
 
 insertMoney();
+
+/* return changes */
+function returnChanges() {
+    changesBtn.addEventListener("click", () => {
+        if (checkChanges()) {
+            reset();
+        }
+    });
+}
+
+returnChanges();
