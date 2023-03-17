@@ -1,0 +1,83 @@
+/* root */
+:root {
+    --color-main: #6327FE;
+    --color-back: #EAE8FE;
+
+    --font-size-name: 9px;
+    --font-size-price: 12px;
+    --font-size-button: 13px;
+    --font-size-display: 14px;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    max-width: 748px;
+    margin: auto;
+
+    background-color: var(--color-back);
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+/* checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* header */
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+h1,
+h2 {
+    position: absolute;
+    font-size: 0;
+}
+
+.logo {
+    width: 386px;
+    margin-bottom: 20px;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    background-clip: padding-box;
+
+    border-top: 10px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+/* button cursor */
+input[type="button"],
+button[type="button"] {
+    cursor: pointer;
+}
