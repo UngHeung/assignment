@@ -246,7 +246,7 @@ function addSelectionList(drink) {
         thumbnail.setAttribute(
             "style",
             `
-                background: url(../images/${drink}.png) 50%;
+                background: url(images/${drink}.png) 50%;
                 background-size: contain;
             `
         );
