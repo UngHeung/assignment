@@ -257,3 +257,8 @@ function addSelectionList(drink) {
         item.querySelector(".count").innerText = `${itemsCount.get(drinkName)}`;
     }
 }
+
+/* move return list */
+function moveReturnList() {
+    returnList.innerHTML += pickList.innerHTML;
+}
