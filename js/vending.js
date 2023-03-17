@@ -262,3 +262,23 @@ function addSelectionList(drink) {
 function moveReturnList() {
     returnList.innerHTML += pickList.innerHTML;
 }
+
+/* ========== validation ========== */
+/* insert input validation */
+function checkInsertInput() {
+    if (insertInput.value === "") {
+        alert("금액을 입력하세요.💲");
+        insertInput.focus();
+        return false;
+    }
+
+    if (isNaN(insertInput.value)) {
+        alert("숫자만 입력할 수 있습니다.🙏");
+        insertInput.value = "";
+        insertInput.focus();
+        return false;
+    }
+
+    alert(`${insertInput.value}원이 입금 되었습니다.🤑`);
+    return true;
+}
