@@ -155,3 +155,19 @@ function displayOutput() {
     getTotalAmount();
     getChanges();
 }
+
+/* ========== execute function ========== */
+/* insert money */
+function insertMoney() {
+    insertBtn.addEventListener("click", () => {
+        if (checkInsertInput()) {
+            calculation(insertInput.value, 0);
+            displayOutput();
+
+            insertInput.value = "";
+            displayOutput();
+        }
+    });
+}
+
+insertMoney();
