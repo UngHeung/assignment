@@ -298,3 +298,18 @@ function checkChanges() {
     alert(`${changes}원이 반환되었습니다.👌`);
     return true;
 }
+
+/* return validation */
+function checkReturn() {
+    if (totalAmount === 0) {
+        alert("상품을 선택하지 않았습니다.😅");
+    }
+
+    if (changes < 0) {
+        alert(`${changes * -1}원이 부족합니다.😢`);
+        return false;
+    }
+
+    alert("선택하신 상품의 구매가 완료되었습니다.💝");
+    return true;
+}
