@@ -95,3 +95,44 @@ function setVendingItems() {
 setVendingItems();
 
 const itemsListbtns = document.querySelectorAll(".items-box button");
+
+/* ========== reset ========== */
+function reset() {
+    totalFunds = 0;
+    totalAmount = 0;
+    changes = 0;
+    displayOutput();
+    resetItemsCount();
+}
+
+function resetItemsCount() {
+    itemsList.forEach((item) => {
+        itemsCount.set(item, 0);
+    });
+}
+
+/* ========== setter ========== */
+function setFunds(insertMoney) {
+    totalFunds += parseInt(insertMoney);
+}
+
+function setTotalAmount(itemPrice) {
+    totalAmount += itemPrice;
+}
+
+function setChanges() {
+    changes = totalFunds - totalAmount;
+}
+
+/* getter */
+function getFunds() {
+    insertOutput.innerText = `${totalFunds}`;
+}
+
+function getTotalAmount() {
+    totlaAmountOutput.innerText = `${totalAmount}`;
+}
+
+function getChanges() {
+    changesOutput.innerText = `${changes}`;
+}
