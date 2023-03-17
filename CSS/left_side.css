@@ -78,3 +78,61 @@
 
     background: rgba(0, 0, 0, 0.8) url(../images/sold_out.png) 50% no-repeat;
 }
+
+/* ===== changes ===== */
+.changes-box {
+    margin-top: 20px;
+
+    clear: both;
+}
+
+/* changes */
+.changes {
+    width: 200px;
+    height: 33px;
+    margin-bottom: 12px;
+    padding: 0 7px;
+
+    background-color: var(--color-back);
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    float: left;
+}
+
+.changes>span,
+.changes>h3 {
+    font-size: var(--font-size-display);
+    font-weight: 500;
+    line-height: 33px;
+}
+
+.changes>h3 {
+    float: left;
+}
+
+.changes>span {
+    float: right;
+}
+
+.changes>span::after {
+    content: "원";
+    margin-left: 3px;
+}
+
+.changes-box input[type="button"] {
+    width: 94px;
+    height: 33px;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+
+    outline: none;
+    border: none;
+
+    font-size: var(--font-size-button);
+    font-weight: 500;
+
+    float: right;
+}
