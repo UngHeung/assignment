@@ -224,3 +224,36 @@ function returnItems() {
 }
 
 returnItems();
+
+/* ========== selection ========== */
+/* add selection list */
+function addSelectionList(drink) {
+    const drinkName = itemsName[drink];
+    const drinkCount = itemsCount.get(drinkName);
+
+    if (drinkCount === 1) {
+        const addItem = document.createElement("li");
+
+        addItem.setAttribute("class", `${drinkName}`);
+        addItem.innerHTML = `
+                <div class="thumbnail"></div>
+                <p class="name">${drinkName}</p>
+                <span class="count">${drinkCount}</span>
+            `;
+
+        const thumbnail = addItem.querySelector(".thumbnail");
+
+        thumbnail.setAttribute(
+            "style",
+            `
+                background: url(../images/${drink}.png) 50%;
+                background-size: contain;
+            `
+        );
+
+        pickList.appendChild(addItem);
+    } else {
+        const item = document.querySelector(`.${drinkName}`);
+        item.querySelector(".count").innerText = `${itemsCount.get(drinkName)}`;
+    }
+}
