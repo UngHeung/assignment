@@ -182,3 +182,24 @@ function returnChanges() {
 }
 
 returnChanges();
+
+/* select items */
+function selectItems() {
+    itemsListbtns.forEach((button) => {
+        const selectItemName = button.querySelector(".name").innerText;
+        const selectItem = Object.keys(itemsName).find((key) => itemsName[key] === selectItemName);
+        console.log(selectItem);
+        button.addEventListener("click", () => {
+            const itemName = itemsName[selectItem];
+            const itemCount = itemsCount.get(itemName);
+            itemsCount.set(itemName, itemCount + 1);
+
+            addSelectionList(selectItem);
+            setTotalAmount(itemsPrice.get(itemName));
+            calculation(0, 0);
+            displayOutput();
+        });
+    });
+}
+
+selectItems();
