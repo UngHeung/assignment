@@ -45,3 +45,53 @@ const itemsStock = new Map([
     ["Green_Cola", 100],
     ["Orange_Cola", 100],
 ]);
+
+/* ========== ========== ========== ========== ========== */
+
+/* button */
+const changesBtn = document.querySelector('.changes-box>input[type="button"]');
+const insertBtn = document.querySelector('.insert>input[type="button"]');
+const returnBtn = document.querySelector(".get-items-btn");
+
+/* input */
+const insertInput = document.querySelector('.insert>input[type="text"]');
+
+/* output */
+const changesOutput = document.querySelector(".changes>span");
+const insertOutput = document.querySelector(".funds>div>span");
+const totlaAmountOutput = document.querySelector(".total>span");
+
+/* list */
+const pickList = document.querySelector(".selection");
+const returnList = document.querySelector(".return>ul");
+
+/* ========== ========== ========== ========== ========== */
+
+/* ========== make vending menu ========== */
+const vending = document.querySelector(".items-box");
+
+function setVendingItems() {
+    itemsList.forEach((element) => {
+        const createItems = document.createElement("button");
+        const itemName = Object.keys(itemsName).find((key) => itemsName[key] === element);
+        createItems.setAttribute("type", "button");
+
+        /* sold out */
+        if (itemsStock.get(element) === 0) {
+            createItems.setAttribute("disabled", true);
+        }
+
+        /* item HTML */
+        createItems.innerHTML = `
+            <img src="images/${itemName}.png" alt=${element}>
+            <p class="name">${element}</p>
+            <p class="price">${itemsPrice.get(element)}</p>
+        `;
+
+        vending.appendChild(createItems);
+    });
+}
+
+setVendingItems();
+
+const itemsListbtns = document.querySelectorAll(".items-box button");
