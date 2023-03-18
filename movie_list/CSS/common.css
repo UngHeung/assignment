@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
+/* reset */
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: calc(center - 213px);
 
     width: 100vw;
+    height: 1683px;
 
     font-family: 'Noto Sans KR', sans-serif;
 
@@ -27,10 +29,11 @@ ul>li {
     list-style: none;
 }
 
-button {
-    border: none;
+img {
+    vertical-align: bottom;
 }
 
+/* header */
 header {
     display: flex;
     flex-wrap: wrap;
@@ -38,27 +41,132 @@ header {
     align-items: center;
 
     width: 1003px;
-    height: auto;
+
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
     width: 100%;
-    margin: 25px 0;
+    margin: 35px 0;
 
     font-size: 24px;
     font-weight: 900;
-    font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 
 nav {
     width: 550px;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 
 nav>ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
 
+nav li>a {
+    font-weight: 600;
+}
+
+nav li:not(:first-child)>a {
+    color: #828282;
+}
+
+nav li:first-child a {
+    font-weight: 900;
+}
+
+/* content */
+.content-wrap {
+    width: 1060px;
+    height: 1170px;
+    margin-top: 150px;
+
+    background-color: #f2f2f2;
+    border: 2px solid #bdbdbd;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+
+/* footer */
+footer {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 213px;
+
+    background-color: #f2f2f2;
+}
+
+footer>section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1189px;
+    padding: 40px 0;
+
+    box-sizing: border-box;
+}
+
+.logo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.sns>a {
+    margin-left: 22px;
+}
+
+.sns img {
+    width: 24px;
+    height: 24px;
+}
+
+.company>span,
+.copyright {
+    font-size: 14px;
+    color: #4F4F4F;
+}
+
+.company {
+    font-style: normal;
+}
+
+.company>span:not(:nth-child(5))::after {
+    content: "|";
+    margin: 10px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.company>span:first-child {
+    font-weight: 600;
+}
+
+.company>span::before {
+    font-weight: 600;
+}
+
+.company>span:nth-child(2)::before {
+    content: "대표 ";
+}
+
+.company>span:nth-child(3)::before {
+    content: "사업자 번호 ";
+}
+
+.company>span:nth-child(5)::before {
+    content: "주소 ";
+}
+
+.copyright {
+    font-weight: 600;
 }
