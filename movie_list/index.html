@@ -6,169 +6,187 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정글 시네마</title>
+
+    <!-- font Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- font Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/movie-list.css">
 </head>
 
 <body>
-    <!-- header -->
-    <header>
-        <h1>정글 시네마 영화 목록</h1>
-        <nav>
-            <ul>
-                <li>현재상영영화</li>
-                <li>개봉예정영화</li>
-                <li>박스오피스</li>
-            </ul>
-        </nav>
-    </header>
+    <article class="content-wrap">
+        <!-- header -->
+        <header>
+            <h1>정글 시네마 영화 목록</h1>
+            <svg width="650" height="2" viewBox="0 0 650 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 1H650" stroke="#BDBDBD" stroke-width="2" />
+            </svg>
+            <nav>
+                <ul>
+                    <li><a href="#">현재상영영화</a></li>
+                    <li><a href="#">개봉예정영화</a></li>
+                    <li><a href="#">박스오피스</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section>
-        <ul>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-0.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">위니브 월드:새로운 시대</h2>
-                    <article class="movie-info">
-                        <span class="outline">판타지</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.05</span>
-                        <span class="release">2021.03.27</span>
-                        <span class="cast">라이캣, 소울곰, 개리씨</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-1.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">눈떠보니 코딩테스트 전날</h2>
-                    <article class="movie-info">
-                        <span class="outline">스릴러</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.25</span>
-                        <span class="release">2021.04.01</span>
-                        <span class="cast">자바독, 개리씨, 빙키</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-2.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">파이썬 부트캠프</h2>
-                    <article class="movie-info">
-                        <span class="outline">드라마</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.77</span>
-                        <span class="release">2021.04.12</span>
-                        <span class="cast">캣, 파이, 썬, 뮤라</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-3.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">파이큐티의 사랑</h2>
-                    <article class="movie-info">
-                        <span class="outline">스릴러</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.81</span>
-                        <span class="release">2021.04.08</span>
-                        <span class="cast">파이썬, 큐티</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-4.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">NGINX의 춤</h2>
-                    <article class="movie-info">
-                        <span class="outline">드라마</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.88</span>
-                        <span class="release">2021.04.15</span>
-                        <span class="cast">NGINX, 노션</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-5.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">어쩌다 밋업</h2>
-                    <article class="movie-info">
-                        <span class="outline">드라마</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.25</span>
-                        <span class="release">2021.04.17</span>
-                        <span class="cast">라이캣, 자바독, 소울곰</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-6.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">파이게임 어드벤처</h2>
-                    <article class="movie-info">
-                        <span class="outline">판타지액션</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.56</span>
-                        <span class="release">2021.04.05</span>
-                        <span class="cast">개리씨, 파이썬</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-            <li>
-                <section>
-                    <div class="movie-poster">
-                        <img src="images/poster/포스터 이미지-7.png" alt="영화 포스터">
-                    </div>
-                    <h2 class="movie-title">MBIT는 내 운명</h2>
-                    <article class="movie-info">
-                        <span class="outline">로맨스</span>
-                        <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.02</span>
-                        <span class="release">2021.04.12</span>
-                        <span class="cast">라이캣, 개리씨, 자바독</span>
-                    </article>
-                </section>
-                <section>
-                    <button type="button" class="reserve">예매하기</button>
-                    <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
-                </section>
-            </li>
-        </ul>
-    </section>
+        <!-- content -->
+        <section>
+            <ul>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-0.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">위니브 월드:새로운 시대</h2>
+                        <article class="movie-info">
+                            <span class="outline">판타지</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.05</span>
+                            <span class="release">2021.03.27</span>
+                            <span class="cast">라이캣, 소울곰, 개리씨</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-1.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">눈떠보니 코딩테스트 전날</h2>
+                        <article class="movie-info">
+                            <span class="outline">스릴러</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.25</span>
+                            <span class="release">2021.04.01</span>
+                            <span class="cast">자바독, 개리씨, 빙키</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-2.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">파이썬 부트캠프</h2>
+                        <article class="movie-info">
+                            <span class="outline">드라마</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.77</span>
+                            <span class="release">2021.04.12</span>
+                            <span class="cast">캣, 파이, 썬, 뮤라</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-3.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">파이큐티의 사랑</h2>
+                        <article class="movie-info">
+                            <span class="outline">스릴러</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.81</span>
+                            <span class="release">2021.04.08</span>
+                            <span class="cast">파이썬, 큐티</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-4.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">NGINX의 춤</h2>
+                        <article class="movie-info">
+                            <span class="outline">드라마</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.88</span>
+                            <span class="release">2021.04.15</span>
+                            <span class="cast">NGINX, 노션</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-5.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">어쩌다 밋업</h2>
+                        <article class="movie-info">
+                            <span class="outline">드라마</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.25</span>
+                            <span class="release">2021.04.17</span>
+                            <span class="cast">라이캣, 자바독, 소울곰</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-6.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">파이게임 어드벤처</h2>
+                        <article class="movie-info">
+                            <span class="outline">판타지액션</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">8.56</span>
+                            <span class="release">2021.04.05</span>
+                            <span class="cast">개리씨, 파이썬</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <div class="movie-poster">
+                            <img src="images/poster/포스터 이미지-7.png" alt="영화 포스터">
+                        </div>
+                        <h2 class="movie-title">MBIT는 내 운명</h2>
+                        <article class="movie-info">
+                            <span class="outline">로맨스</span>
+                            <span class="rating"><img src="images/icon/rating-star.svg" alt="별점">9.02</span>
+                            <span class="release">2021.04.12</span>
+                            <span class="cast">라이캣, 개리씨, 자바독</span>
+                        </article>
+                    </section>
+                    <section>
+                        <button type="button" class="reserve">예매하기</button>
+                        <button type="button" class="trailer"><img src="images/icon/trailer-btn.svg" alt="예고편 버튼">예고편</button>
+                    </section>
+                </li>
+            </ul>
+        </section>
+    </article>
 
     <!-- footer -->
     <footer>
