@@ -1,0 +1,98 @@
+:root {
+    --ft-main: 'Montserrat', sans-serif;
+    --ft-size-h2: 40px;
+    --ft-size-main: 14px;
+    --ft-size-sub: 12px;
+
+    --color-dpurple: #673399;
+    --color-lpurple: #bd8fe8;
+    --color-lpurple2: #f1e0f8;
+    --color-lgray: #eeeeee;
+
+    --space-section: 100px;
+    --space-heading: 32px;
+    --space-basic: 24px;
+
+    /*
+        # first section
+        h2-deco: orangred
+        
+        # second section
+        back: seashell
+        h2: salmon
+        button: orangred
+
+        #
+        d: deep (dcolor)
+        l: light (lcolor)
+        bg : background
+        ft : font
+        fs : font-size (=fsize)
+    */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: var(--ft-main);
+    cursor: default;
+}
+
+body {
+    background-color: var(--color-dpurple);
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: var(--ft-size-h2);
+}
+
+/* # scroll */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: orangered;
+    background-clip: padding-box;
+    border-right: 7px solid transparent;
+}
+
+/* # h1 hidden */
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    overflow: hidden;
+}
+
+/* # content */
+.cont {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.cont-head {
+    margin-bottom: var(--space-section)
+}
+
+/* # background color */
+.bg-color-wrap {
+    padding: var(--space-section) 0;
+}
+
+.bg-color-wrap:nth-of-type(1) {
+    background-color: inherit;
+}
+
+.bg-color-wrap:nth-of-type(2) {
+    background-color: seashell;
+}
