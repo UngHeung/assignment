@@ -245,7 +245,7 @@
     /* # container header */
     .second-header>h2 {
         width: 90%;
-        min-width: 0;
+        min-width: 300px;
     }
 }
 
