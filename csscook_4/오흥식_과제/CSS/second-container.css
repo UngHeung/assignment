@@ -238,6 +238,9 @@
         margin: 0 0 var(--space-basic) 0;
     }
 
+    .product-content>h3 {
+        min-height: 0;
+    }
 }
 
 @media screen and (max-width: 380px) {
