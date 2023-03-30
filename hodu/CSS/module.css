@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ===== module root */
+:root {
+    --fs-heading: 36px;
+    --fs-heading-m: 24px;
+
+    --fs-content: 14px;
+
+    --fs-button: 16px;
+    --fs-button-m: 14px;
+}
+
+/* module reset */
+
+.module-wrap>* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'SpoqaHanSansNeo-Regular', 'sans-serif';
+
+}
+
+input,
+button {
+    border: none;
+}
+
+.module-wrap>section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 3px dashed #333;
+}
+
+.module-wrap .m-button {
+    background-color: #D97652;
+}
+
+/* =================================== */
+
+.module-wrap {
+    max-width: 1280px;
+}
+
+/* ===== button */
+/* orange button 1 */
+.m-button {
+    min-width: 136px;
+    height: 50px;
+    padding: 0 20px;
+    background-color: var(--main-color);
+    border-radius: 30px;
+
+    font-size: var(--fs-button);
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    transition: filter, height .3s, .3s;
+}
+
+.m-button:hover {
+    filter: brightness(110%);
+}
+
+
+
+/* ===== form */
+/* subscribe form 1 */
+.m-subscribe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    padding: 55px;
+
+    background-color: #263140;
+    border-radius: 30px;
+
+    color: white;
+}
+
+/* text content */
+.m-subscribe>p {
+    width: 45%;
+
+    font-size: var(--fs-content);
+    color: #F2E9D8;
+    line-height: 1.5em;
+}
+
+.m-subscribe>p>strong {
+    display: block;
+    margin-bottom: 20px;
+
+    font-size: var(--fs-heading);
+    color: white;
+    line-height: 1.2em;
+}
+
+/* input content */
+.m-subscribe form {
+    position: relative;
+    width: 45%;
+
+    text-align: right;
+}
+
+.m-subscribe form::before {
+    /* mail icon */
+    content: url('../images/icon-mail.svg');
+    position: absolute;
+    top: 19px;
+    left: 15px;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+}
+
+.input-text {
+    /* input email */
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    right: 0px;
+
+    border-radius: 30px;
+
+    text-indent: 50px;
+}
+
+.input-submit {
+    /* button position */
+    position: relative;
+    top: 6px;
+    left: -5px;
+}
+
+/* ===== modal */
+.modal-1 {
+    min-width: 600px;
+    padding: 30px;
+
+    background: url(../images/modal.png) no-repeat center;
+    background-size: cover;
+    border-radius: 30px;
+
+    text-align: center;
+}
+
+.modal-1>p {
+    padding: 30px 0;
+    font-size: var(--fs-content);
+}
+
+.modal-1>p>strong {
+    display: block;
+    margin-bottom: 20px;
+
+    font-size: var(--fs-heading);
+    color: var(--main-color);
+}
+
+@media screen and (max-width: 1300px) {
+    .m-subscribe {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    /* ===== button */
+    .m-button {
+        height: 40px;
+        font-size: var(--font-button-m);
+    }
+
+    /* ===== form */
+    /* subscribe form 1 */
+    .m-subscribe {
+        flex-wrap: wrap;
+        padding: 30px;
+
+        color: white;
+    }
+
+    /* text content */
+    .m-subscribe>p {
+        width: 100%;
+
+        float: none;
+    }
+
+    .m-subscribe>p>strong {
+        font-size: var(--fs-heading-m);
+        color: white;
+    }
+
+    /* input content */
+    .m-subscribe form {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .m-subscribe form::before {
+        /* email icon */
+        top: 8px;
+    }
+
+    .input-text {
+        /* input email */
+        position: static;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .input-submit {
+        /* button position */
+        position: static;
+    }
+
+    /* ===== modal */
+    .modal-1 {
+        max-width: 85%;
+        min-width: auto;
+        padding: 30px;
+    }
+
+    .modal-1>p>strong {
+        font-size: var(--fs-heading-m);
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .modal-1 {
+        width: 80%;
+    }
+}
