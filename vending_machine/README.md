@@ -1,3 +1,0 @@
-# Vending Machine
-
-index.html
