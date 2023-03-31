@@ -149,7 +149,7 @@ button {
 
 /* ===== modal */
 .modal-1 {
-    min-width: 600px;
+    max-width: 600px;
     padding: 30px;
 
     background: url(../images/modal.png) no-repeat center;
@@ -174,7 +174,7 @@ button {
 
 @media screen and (max-width: 1300px) {
     .m-subscribe {
-        width: 80%;
+        width: 90%;
     }
 }
 
@@ -233,8 +233,6 @@ button {
 
     /* ===== modal */
     .modal-1 {
-        max-width: 85%;
-        min-width: auto;
         padding: 30px;
     }
 
@@ -245,6 +243,6 @@ button {
 
 @media screen and (max-width: 620px) {
     .modal-1 {
-        width: 80%;
+        width: 90%;
     }
 }

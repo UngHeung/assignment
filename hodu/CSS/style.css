@@ -285,6 +285,20 @@ img {
     min-height: 340px;
 }
 
+/* ===== modal */
+.modal-back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .7);
+    z-index: 3;
+}
+
 /* ===== footer */
 .main-footer {
     display: flex;
