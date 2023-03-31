@@ -22,6 +22,7 @@
             <!-- menu-wrapper -->
             <section class="menu-wrapper">
                 <h3 class="hidden">상품 메뉴</h3>
+                <!-- items-list -->
                 <ul class="items-list">
                     <li>
                         <button type="button" value="Original_Cola">
@@ -30,7 +31,7 @@
                             <span>1000</span>
                         </button>
                     </li>
-                </ul>
+                </ul><!-- // items-list -->
             </section><!-- // menu-wrapper -->
 
             <!-- form -->
@@ -39,11 +40,13 @@
                 <section class="slot-wrapper">
                     <h3 class="hidden">입금, 거스름돈 반환</h3>
 
+                    <!-- slot-change -->
                     <section class="slot-change">
                         <span class="change-display">1000</span>
                         <button type="button">거스름돈 반환</button>
                     </section>
 
+                    <!-- slot-insert -->
                     <section class="slot-insert">
                         <input type="number" placeholder="입금액 입력" step="1000" min="0">
                         <button type="button">입금</button>
@@ -53,6 +56,7 @@
                 <!-- select-wrapper -->
                 <section class="select-wrapper">
                     <h3 class="hidden">선택한 음료 목록</h3>
+                    <!-- select-list -->
                     <ul class="select-list">
                         <li>
                             <button type="button" value="Original_Cola">
@@ -61,7 +65,7 @@
                                 <span class="select-count">0</span>
                             </button>
                         </li>
-                    </ul>
+                    </ul><!-- // select-list -->
                 </section><!-- // select-wrapper -->
             </form><!-- // form -->
         </section><!-- // input-section -->
@@ -75,6 +79,16 @@
         <!-- output-section -->
         <section class="output-section">
             <h2 class="hidden">획득한 음료</h2>
+            <!-- dispenser-list -->
+            <ul class="dispenser-list">
+                <li>
+                    <button type="button" value="Original_Cola">
+                        <img src="" alt="Original Cola Image">
+                        <strong>Original_Cola</strong>
+                        <span class="dispenser-count">0</span>
+                    </button>
+                </li>
+            </ul><!-- // dispenser-list -->
 
             <!-- total-price-wrapper -->
             <p class="total-price">
