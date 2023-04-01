@@ -22,6 +22,10 @@
     margin: 0;
 }
 
+li {
+    list-style: none;
+}
+
 button,
 input {
     all: unset;
@@ -31,9 +35,70 @@ img {
     vertical-align: bottom;
 }
 
-/* main > section, article */
+/* ===== header */
+.main-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.main-header>img {
+    max-width: 386px;
+}
+
+/* ===== main > section, article */
+main {
+    max-width: 748px;
+    margin: 0 auto;
+
+    overflow: hidden;
+}
+
 main>section,
 main>article {
-    max-width: 360px;
+    width: 360px;
     background-color: white;
+}
+
+.input-section {
+    float: left;
+}
+
+.wallet {
+    float: right;
+}
+
+.output-section {
+    float: right;
+}
+
+/* ===== media */
+@media screen and (max-width: 800px) {
+    :root {
+        background-color: white;
+    }
+
+    .main-header {
+        margin-bottom: 40px;
+    }
+
+    .main-header>img {
+        max-width: 50%;
+    }
+
+    main {
+        width: 80%;
+    }
+
+    .input-section,
+    .wallet,
+    .output-section {
+        width: 100%;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    main {
+        max-width: 100%;
+    }
 }
