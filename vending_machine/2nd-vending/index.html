@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>vending machine</title>
+    <link rel="stylesheet" href="CSS/common.css">
 </head>
 
 <body>
@@ -24,13 +25,13 @@
                 <h3 class="hidden">상품 메뉴</h3>
                 <!-- items-list -->
                 <ul class="items-list">
-                    <li>
+                    <!-- <li>
                         <button type="button" value="Original_Cola">
-                            <img src="" alt="Original Cola image">
-                            <strong>Original_Cola</strong>
-                            <span>1000</span>
+                            <img src="images/original.png" alt="Original Cola image" class="item-img">
+                            <strong class="item-name">Original_Cola</strong>
+                            <span class="item-price">1000</span>
                         </button>
-                    </li>
+                    </li> -->
                 </ul><!-- // items-list -->
             </section><!-- // menu-wrapper -->
 
@@ -60,9 +61,9 @@
                     <ul class="select-list">
                         <li>
                             <button type="button" value="Original_Cola">
-                                <img src="" alt="Original Cola Image">
-                                <strong>Original_Cola</strong>
-                                <span class="select-count">0</span>
+                                <img src="" alt="Original Cola Image" class="select-img">
+                                <strong class="item-name">Original_Cola</strong>
+                                <span class="item-count">0</span>
                             </button>
                         </li>
                     </ul><!-- // select-list -->
@@ -83,9 +84,9 @@
             <ul class="dispenser-list">
                 <li>
                     <button type="button" value="Original_Cola">
-                        <img src="" alt="Original Cola Image">
-                        <strong>Original_Cola</strong>
-                        <span class="dispenser-count">0</span>
+                        <img src="" alt="Original Cola Image" class="select-img">
+                        <strong class="item-name">Original_Cola</strong>
+                        <span class="item-count">0</span>
                     </button>
                 </li>
             </ul><!-- // dispenser-list -->
@@ -98,5 +99,6 @@
         </section><!-- // output-section -->
     </main><!-- // vending-main -->
 </body>
+<script src="JS/vending.js"></script>
 
 </html>
