@@ -51,10 +51,16 @@ function makeMenuList() {
         button.setAttribute("type", "button");
         button.setAttribute("value", `${element}`);
 
+        // 재고 확인
+        if (itemsStock.get(element) == 0) {
+            button.setAttribute("class", "soldout");
+            button.setAttribute("disabled", "");
+        }
+
         // 1번째 방법 insertAdjacentHTML로 버튼에 나눠서 추가하기
         button.insertAdjacentHTML("beforeend", `<img src="images/${itemName}.png" alt="${element.replace("_", " ")} image" class="item-img">`);
         button.insertAdjacentHTML("beforeend", `<strong class="item-name">${element}</strong>`);
-        button.insertAdjacentHTML("beforeend", `<span class="item-price">${itemsPrice.get(element)}</span>`);
+        button.insertAdjacentHTML("beforeend", `<span class="item-price">${itemsPrice.get(element)}원</span>`);
 
         // 2번째 방법 insertAdjacentHTML로 버튼 안에 한번에 추가하기
         // button.insertAdjacentHTML(
@@ -62,7 +68,7 @@ function makeMenuList() {
         //     `
         //     <img src="images/${itemName}.png" alt="${element.replace("_", " ")} image" class="item-img">
         //     <strong class="item-name">${element}</strong>
-        //     <span class="item-price">${itemsPrice.get(element)}</span>
+        //     <span class="item-price">${itemsPrice.get(element)}원</span>
         //     `
         // );
 
