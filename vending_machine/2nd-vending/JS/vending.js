@@ -96,10 +96,6 @@ function setSlotMoney(money) {
     slotMoney += money;
 }
 
-function setChange() {
-    change = slotMoney - totalPrice;
-}
-
 function setTotalPrice(price) {
     totalPrice += price;
 }
@@ -129,18 +125,44 @@ function deleteItemCal(itemName) {
     setTotalPrice(itemsPrice.get(itemName) * -1);
 }
 
+function countAndStockCal(type, itemName) {
+    if (type == "add") {
+        itemsCount.set(itemName, itemsCount.get(itemName) + 1);
+        itemsStock.set(itemName, itemsStock.get(itemName) - 1);
+    } else if (type == "delete") {
+        itemsCount.set(itemName, itemsCount.get(itemName) - 1);
+        itemsStock.set(itemName, itemsStock.get(itemName) + 1);
+    }
+}
+
+function changeCal() {
+    change = slotMoney - totalPrice;
+}
+
 /* ========== display ========== */
 const slotChangeDisplay = document.getElementById("change_display");
+const totalPriceDisplay = document.getElementById("total_price");
 
 function displayChange() {
     slotChangeDisplay.innerText = `${getChange()}`;
 }
 
+function displaySelectItemCount(itemName) {
+    if (itemsCount.get(itemName) != 0) {
+        const selectItemCount = document.querySelector(`.${itemName}-count`);
+        selectItemCount.innerText = `${itemsCount.get(itemName)}`;
+    }
+}
+
+function displayTotalPrice() {
+    totalPriceDisplay.innerText = `${totalPrice}`;
+}
+
 /* ========== function ========== */
 const menuItem = document.querySelectorAll(".in-stock");
 
-const slotChangeButton = document.getElementById("change_button");
 const slotInsertInput = document.getElementById("insert_input");
+const slotChangeButton = document.getElementById("change_button");
 const slotInsertButton = document.getElementById("insert_button");
 
 const selectList = document.querySelector(".select-list");
@@ -154,12 +176,15 @@ function selectMenuButton() {
             if (checkStock(itemName)) {
                 addSelectList(itemName);
 
-                itemsCount.set(itemName, itemsCount.get(itemName) + 1);
-                itemsStock.set(itemName, itemsStock.get(itemName) - 1);
+                countAndStockCal("add", itemName);
 
                 console.log(itemsCount.get(itemName), itemsStock.get(itemName));
 
                 selectItemCal(itemName);
+                changeCal();
+                displayChange();
+                displaySelectItemCount(itemName);
+                displayTotalPrice();
             }
         });
     });
@@ -175,7 +200,7 @@ function slotButtonEvent() {
 
         if (checkSlotInsert(money)) {
             setSlotMoney(money);
-            setChange();
+            changeCal();
             displayChange();
         }
     });
@@ -198,7 +223,7 @@ function addSelectList(itemName) {
 
         selectButton.insertAdjacentHTML("beforeend", `<img src="images/${itemsCode.get(itemName)}.png" alt="Original Cola Image" class="select-img">`);
         selectButton.insertAdjacentHTML("beforeend", `<strong class="item-name">${itemName}</strong>`);
-        selectButton.insertAdjacentHTML("beforeend", `<span class="item-count">${itemsCount.get(itemName)}</span>`);
+        selectButton.insertAdjacentHTML("beforeend", `<span class="${itemName}-count">${itemsCount.get(itemName) + 1}</span>`);
 
         selectItem.appendChild(selectButton);
         selectList.appendChild(selectItem);
@@ -207,11 +232,15 @@ function addSelectList(itemName) {
         selectButton.addEventListener("click", () => {
             if (checkCount("remove", itemName)) {
                 selectList.removeChild(selectItem);
+                countAndStockCal("delete", itemName);
+            } else {
+                countAndStockCal("delete", itemName);
+                displaySelectItemCount(itemName);
             }
-
-            itemsCount.set(itemName, itemsCount.get(itemName) - 1);
-            itemsStock.set(itemName, itemsStock.get(itemName) + 1);
             deleteItemCal(itemName);
+            changeCal();
+            displayChange();
+            displayTotalPrice();
         });
     }
 }
@@ -251,4 +280,14 @@ function checkSlotInsert(money) {
 
     alert("1,000원 단위로만 입금 가능합니다.");
     return false;
+}
+
+/* check checkPayment */
+function checkPayment() {
+    if (change < 0) {
+        alert(`${change * -1}원이 부족합니다.`);
+        return false;
+    }
+
+    return true;
 }
