@@ -28,10 +28,6 @@
     box-shadow: var(--shadow-button);
 }
 
-.items-list>li>button:not(:disabled) {
-    cursor: pointer;
-}
-
 .items-list>li>button:not(:disabled):active {
     outline: 3px solid var(--color-main);
 }
@@ -77,7 +73,7 @@
 }
 
 /* slot left side */
-.change-display,
+.slot-change>span,
 .slot-insert>input {
     width: 200px;
     height: 33px;
@@ -100,7 +96,7 @@
 }
 
 /* slot-change */
-.change-display {
+.slot-change>span {
     position: relative;
 
     background-color: var(--color-display);
@@ -110,13 +106,13 @@
     line-height: 33px;
 }
 
-.change-display::before {
+.slot-change>span::before {
     content: "잔액 :";
     position: absolute;
     left: 10px;
 }
 
-.change-display::after {
+.slot-change>span::after {
     content: "원";
     margin-left: 3px;
 }
@@ -146,6 +142,14 @@
     background-color: var(--color-display);
     border-radius: 5px;
     border: 1px solid var(--color-lgray);
+}
+
+.select-list>li>button {
+    width: 170px;
+}
+
+.select-list .item-name {
+    margin-right: 10px;
 }
 
 .get-button {

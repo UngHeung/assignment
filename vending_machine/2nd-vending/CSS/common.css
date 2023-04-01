@@ -38,12 +38,29 @@ input {
     box-sizing: inherit;
 }
 
+button:not(:disabled) {
+    cursor: pointer;
+}
+
 img {
     vertical-align: bottom;
 }
 
 strong {
     all: unset;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    background-clip: padding-box;
+
+    border-top: 10px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid transparent;
 }
 
 .hidden {
@@ -75,7 +92,8 @@ main {
 
 main>section,
 main>article {
-    width: 360px;
+    max-width: 360px;
+    margin: 0 auto;
     background-color: white;
 }
 
@@ -89,6 +107,45 @@ main>article {
 
 .output-section {
     float: right;
+}
+
+/* select, dispenser list */
+.list-style {
+    padding: 12px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.list-style>li>button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 46px;
+    margin-bottom: 6px;
+    padding: 0 10px;
+
+    background-color: white;
+}
+
+.list-style>li>button>img {
+    width: 18px;
+    height: 33px;
+
+    object-fit: cover;
+}
+
+.list-style>li>button>span {
+    display: block;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 5px;
+    border: 1px solid var(--color-lgray);
+
+    font-size: var(--ft-size-info);
+    font-weight: 700;
+    text-align: center;
+    line-height: 30px;
 }
 
 /* ===== media */
