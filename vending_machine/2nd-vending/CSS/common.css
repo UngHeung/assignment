@@ -1,5 +1,8 @@
+/* ===== root */
 :root {
     font-family: 'Noto Sans KR', sans-serif;
+    background-color: #EAE8FE;
+    font-size: 12px;
 
     --ft-size-info: 14px;
     --ft-size-button: 13px;
@@ -13,11 +16,24 @@
     --gap-list: 9px;
 }
 
+/* ===== reset */
 * {
     padding: 0;
     margin: 0;
 }
 
-button {
+button,
+input {
     all: unset;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+/* main > section, article */
+main>section,
+main>article {
+    max-width: 360px;
+    background-color: white;
 }
