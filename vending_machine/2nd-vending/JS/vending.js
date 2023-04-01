@@ -142,6 +142,7 @@ function changeCal() {
 /* ========== display ========== */
 const slotChangeDisplay = document.getElementById("change_display");
 const totalPriceDisplay = document.getElementById("total_price");
+const myWalletDisplay = document.getElementById("my_wallet");
 
 function displayChange() {
     slotChangeDisplay.innerText = `${getChange()}`;
@@ -155,8 +156,15 @@ function displaySelectItemCount(itemName) {
 }
 
 function displayTotalPrice() {
-    totalPriceDisplay.innerText = `${totalPrice}`;
+    totalPriceDisplay.innerText = `${totalPrice}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+function displayMyWallet() {
+    myWalletDisplay.innerText = `${wallet}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+displayTotalPrice();
+displayMyWallet();
 
 /* ========== function ========== */
 const menuItem = document.querySelectorAll(".in-stock");
