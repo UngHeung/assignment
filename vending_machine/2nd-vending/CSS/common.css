@@ -1,8 +1,9 @@
 /* ===== root */
 :root {
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: #EAE8FE;
     font-size: 12px;
+
+    background-color: #EAE8FE;
 
     --ft-size-info: 14px;
     --ft-size-button: 13px;
@@ -10,18 +11,23 @@
 
     --color-main: #6327FE;
     --color-display: #EAE8FE;
+    --color-lgray: #BDBDBD;
 
     --gap-cont: 20px;
     --gap-item: 12px;
     --gap-list: 9px;
+
+    --shadow-button: 0 0 4px rgba(0, 0, 0, .5);
 }
 
-/* ===== reset */
 * {
     padding: 0;
     margin: 0;
+
+    box-sizing: border-box;
 }
 
+/* ===== reset */
 li {
     list-style: none;
 }
@@ -29,10 +35,24 @@ li {
 button,
 input {
     all: unset;
+    box-sizing: inherit;
 }
 
 img {
     vertical-align: bottom;
+}
+
+strong {
+    all: unset;
+}
+
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    font-size: 1px;
+    overflow: hidden;
 }
 
 /* ===== header */
@@ -86,7 +106,7 @@ main>article {
     }
 
     main {
-        width: 80%;
+        max-width: 80%;
     }
 
     .input-section,
