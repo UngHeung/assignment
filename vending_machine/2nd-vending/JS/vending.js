@@ -4,6 +4,7 @@ let wallet = 25000;
 let slotMoney = 0;
 let change = 0;
 let totalPrice = 0;
+let totalCount = 0;
 
 /* items code */
 const itemsCode = new Map([
@@ -45,31 +46,41 @@ const itemsCount = new Map([
     ["Orange_Cola", 0],
 ]);
 
+/* get items Count */
+const getCount = new Map([
+    ["Original_Cola", 0],
+    ["Violet_Cola", 0],
+    ["Yellow_Cola", 0],
+    ["Cool_Cola", 0],
+    ["Green_Cola", 0],
+    ["Orange_Cola", 0],
+]);
+
 /* items list */
-const itemList = ["Original_Cola", "Violet_Cola", "Yellow_Cola", "Cool_Cola", "Green_Cola", "Orange_Cola"];
+const itemsList = ["Original_Cola", "Violet_Cola", "Yellow_Cola", "Cool_Cola", "Green_Cola", "Orange_Cola"];
 
 /* make menu list */
 const menuList = document.querySelector(".items-list");
 
 function makeMenuList() {
-    itemList.forEach((element) => {
+    itemsList.forEach((itemName) => {
         const item = document.createElement("li");
         const button = document.createElement("button");
-        const itemCode = itemsCode.get(element);
+        const itemCode = itemsCode.get(itemName);
 
         button.setAttribute("type", "button");
-        button.setAttribute("value", `${element}`);
-        button.setAttribute("class", "in-stock");
+        button.setAttribute("value", `${itemName}`);
+        button.setAttribute("class", `in-stock ${itemName}`);
 
         // stock check
-        if (itemsStock.get(element) == 0) {
-            button.setAttribute("class", "soldout");
+        if (itemsStock.get(itemName) == 0) {
+            button.setAttribute("class", `soldout ${itemName}`);
             button.setAttribute("disabled", "");
         }
 
-        button.insertAdjacentHTML("beforeend", `<img src="images/${itemCode}.png" alt="${element.replace("_", " ")} image" class="item-img">`);
-        button.insertAdjacentHTML("beforeend", `<strong class="item-name">${element}</strong>`);
-        button.insertAdjacentHTML("beforeend", `<span class="item-price">${itemsPrice.get(element)}원</span>`);
+        button.insertAdjacentHTML("beforeend", `<img src="images/${itemCode}.png" alt="${itemName.replace("_", " ")} image" class="item-img">`);
+        button.insertAdjacentHTML("beforeend", `<strong class="item-name">${itemName}</strong>`);
+        button.insertAdjacentHTML("beforeend", `<span class="item-price">${itemsPrice.get(itemName)}원</span>`);
 
         item.appendChild(button);
         menuList.appendChild(item);
@@ -77,19 +88,6 @@ function makeMenuList() {
 }
 
 makeMenuList();
-
-/* ========== reset ========== */
-function reset() {
-    itemList.forEach((item) => {
-        itemsCount.set(item, 0);
-    });
-
-    slotMoney = 0;
-    change = 0;
-    totalPrice = 0;
-}
-
-reset();
 
 /* ========== setter, getter ========== */
 function setSlotMoney(money) {
@@ -129,14 +127,20 @@ function countAndStockCal(type, itemName) {
     if (type == "add") {
         itemsCount.set(itemName, itemsCount.get(itemName) + 1);
         itemsStock.set(itemName, itemsStock.get(itemName) - 1);
+        getCount.set(itemName, getCount.get(itemName) + 1);
     } else if (type == "delete") {
         itemsCount.set(itemName, itemsCount.get(itemName) - 1);
         itemsStock.set(itemName, itemsStock.get(itemName) + 1);
+        getCount.set(itemName, getCount.get(itemName) - 1);
     }
 }
 
 function changeCal() {
     change = slotMoney - totalPrice;
+}
+
+function getItemsCal() {
+    slotMoney = change;
 }
 
 /* ========== display ========== */
@@ -163,6 +167,7 @@ function displayMyWallet() {
     myWalletDisplay.innerText = `${wallet}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+displayChange();
 displayTotalPrice();
 displayMyWallet();
 
@@ -172,8 +177,10 @@ const menuItem = document.querySelectorAll(".in-stock");
 const slotInsertInput = document.getElementById("insert_input");
 const slotChangeButton = document.getElementById("change_button");
 const slotInsertButton = document.getElementById("insert_button");
+const getItemsButton = document.getElementById("get_button");
 
 const selectList = document.querySelector(".select-list");
+const getList = document.querySelector(".dispenser-list");
 
 /* select menu button */
 function selectMenuButton() {
@@ -186,13 +193,13 @@ function selectMenuButton() {
 
                 countAndStockCal("add", itemName);
 
-                console.log(itemsCount.get(itemName), itemsStock.get(itemName));
-
                 selectItemCal(itemName);
                 changeCal();
                 displayChange();
                 displaySelectItemCount(itemName);
                 displayTotalPrice();
+
+                totalCount++;
             }
         });
     });
@@ -200,11 +207,11 @@ function selectMenuButton() {
 
 selectMenuButton();
 
-function slotButtonEvent() {
+/* slot button */
+function slotButton() {
     slotInsertButton.addEventListener("click", () => {
         const money = parseInt(slotInsertInput.value);
         slotInsertInput.value = "";
-        console.log(typeof money);
 
         if (checkSlotInsert(money)) {
             setSlotMoney(money);
@@ -214,11 +221,31 @@ function slotButtonEvent() {
     });
 
     slotChangeButton.addEventListener("click", () => {
-        console.log(100);
+        if (checkTotalCount("change")) {
+            if (checkChange()) {
+                changeReset();
+                displayChange();
+            }
+        }
     });
 }
 
-slotButtonEvent();
+slotButton();
+
+function getButton() {
+    getItemsButton.addEventListener("click", () => {
+        if (checkPayment()) {
+            if (checkTotalCount("get")) {
+                getItemReset();
+                getItemsCal();
+                displayChange();
+                displayTotalPrice();
+            }
+        }
+    });
+}
+
+getButton();
 
 /* add select list */
 function addSelectList(itemName) {
@@ -249,26 +276,52 @@ function addSelectList(itemName) {
             changeCal();
             displayChange();
             displayTotalPrice();
+
+            totalCount--;
         });
     }
+}
+
+/* add get list */
+function addGetList() {
+    itemsList.forEach((itemName) => {
+        if (itemsCount.get(itemName) != 0) {
+            const getItem = document.createElement("li");
+            const getButton = document.createElement("button");
+
+            if (checkCount("add", itemName)) {
+                getButton.setAttribute("type", "button");
+                getButton.setAttribute("value", `${itemName}`);
+
+                getButton.insertAdjacentHTML("beforeend", `<img src="images/${itemsCode.get(itemName)}.png" alt="Original Cola Image" class="select-img">`);
+                getButton.insertAdjacentHTML("beforeend", `<strong class="item-name">${itemName}</strong>`);
+                getButton.insertAdjacentHTML("beforeend", `<span class="${itemName}-count">${getCount.get(itemName)}</span>`);
+
+                getItem.appendChild(getButton);
+                getList.appendChild(getItem);
+
+                /* select item remove */
+                getButton.addEventListener("click", () => {});
+            }
+        }
+    });
 }
 
 /* ========== validate check ========== */
 /* check stock */
 function checkStock(itemName) {
-    if (itemsStock.get(itemName) != 0) {
-        return true;
+    if (itemsStock.get(itemName) == 0) {
+        alert(`${itemName}의 재고가 부족합니다.`);
+        return false;
     }
 
-    alert(`${itemName}의 재고가 부족합니다.`);
-    return false;
+    return true;
 }
 
 /* check count */
 function checkCount(type, itemName) {
     if (type == "add") {
         if (itemsCount.get(itemName) == 0) {
-            console.log(true);
             return true;
         }
     } else if (type == "remove") {
@@ -277,6 +330,17 @@ function checkCount(type, itemName) {
         }
     }
 
+    return false;
+}
+
+/* check change */
+function checkChange() {
+    if (change > 0) {
+        alert(`${change}원이 반환되었습니다.`);
+        return true;
+    }
+
+    alert("거스름돈이 없습니다.");
     return false;
 }
 
@@ -298,4 +362,53 @@ function checkPayment() {
     }
 
     return true;
+}
+
+function checkTotalCount(type) {
+    if (type == 1) {
+        if (totalCount == "get") {
+            alert("선택된 상품이 없습니다.");
+            return false;
+        }
+    } else if (type == "change") {
+        if (totalCount > 0) {
+            alert("선택된 상품이 있습니다.");
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/* ========== reset ========== */
+function changeReset() {
+    slotMoney = 0;
+    change = 0;
+}
+
+changeReset();
+
+function getItemReset() {
+    itemsList.forEach((item) => {
+        itemsCount.set(item, 0);
+    });
+
+    totalPrice = 0;
+    totalCount = 0;
+    slotMoney = change;
+    selectList.innerHTML = "";
+    itemListReset();
+    addGetList();
+}
+
+function itemListReset() {
+    itemsList.forEach((itemName) => {
+        console.log(itemName);
+        const item = document.querySelector(`.${itemName}`);
+
+        if (itemsStock.get(itemName) == 0) {
+            item.setAttribute("class", `soldout ${itemName}`);
+            item.setAttribute("disabled", "");
+        }
+    });
 }
