@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vending machine</title>
     <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/left-side.css">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
                 <!-- items-list -->
                 <ul class="items-list">
                     <!-- <li>
-                        <button type="button" value="Original_Cola">
+                        <button type="button" value="Original_Cola" class="soldout">
                             <img src="images/original.png" alt="Original Cola image" class="item-img">
                             <strong class="item-name">Original_Cola</strong>
                             <span class="item-price">1000</span>
@@ -43,7 +44,7 @@
 
                     <!-- slot-change -->
                     <section class="slot-change">
-                        <span class="change-display">1000</span>
+                        <span class="change-display">1,000</span>
                         <button type="button">거스름돈 반환</button>
                     </section>
 
@@ -69,19 +70,20 @@
                         </li> 
                         -->
                     </ul><!-- // select-list -->
+                    <button type="button" class="get-button">획득</button>
                 </section><!-- // select-wrapper -->
             </form><!-- // form -->
         </section><!-- // input-section -->
 
         <!-- wallet-wrapper -->
         <article class="wallet">
-            <h3 class="hidden">소지금</h3>
+            <h3>소지금</h3>
             <span></span>
         </article><!-- // wallet-wrapper -->
 
         <!-- output-section -->
         <section class="output-section">
-            <h2 class="hidden">획득한 음료</h2>
+            <h2>획득한 음료</h2>
             <!-- dispenser-list -->
             <ul class="dispenser-list">
                 <!-- 
