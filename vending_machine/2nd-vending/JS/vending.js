@@ -197,7 +197,7 @@ function selectMenuButton() {
                 changeCal();
                 displayChange();
                 displaySelectItemCount(itemName);
-                displayTotalPrice();
+                // displayTotalPrice();
 
                 totalCount++;
             }
@@ -275,7 +275,7 @@ function addSelectList(itemName) {
             deleteItemCal(itemName);
             changeCal();
             displayChange();
-            displayTotalPrice();
+            // displayTotalPrice();
 
             totalCount--;
         });
@@ -365,8 +365,8 @@ function checkPayment() {
 }
 
 function checkTotalCount(type) {
-    if (type == 1) {
-        if (totalCount == "get") {
+    if (type == "get") {
+        if (totalCount == 0) {
             alert("선택된 상품이 없습니다.");
             return false;
         }
@@ -403,7 +403,6 @@ function getItemReset() {
 
 function itemListReset() {
     itemsList.forEach((itemName) => {
-        console.log(itemName);
         const item = document.querySelector(`.${itemName}`);
 
         if (itemsStock.get(itemName) == 0) {
